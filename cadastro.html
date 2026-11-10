@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Cadastro com Validação Dinâmica</title>
     <link rel="stylesheet" href="css/cadastro.css">
 </head>
@@ -9,13 +10,46 @@
 
     <main class="container">
         <form id="form-cadastro" class="card">
-            <h2>Criar Conta</h2>
+            <h2>Curso Técnico</h2>
+
+            <div class="grupo-campo">
+                <label for="Curso">Opções de Cursos</label>
+                <select id="curso" nome="curso">
+                    <option value="Informática">Informática</option>
+                    <option value="Agropecuária">Agropecuária</option>
+                    <option value="agroindústria">Agroindústria</option>
+                    <option value="Meio Ambiente">Meio Ambiente</option>
+                </select>
+
+            
+            </div>
 
             <div class="grupo-campo">
                 <label for="nome">Nome Completo
                 </label>
                 <input type="text" id="nome" 
                 placeholder="Digite seu nome" required>
+                <small id="contador-nome" style="color #5d5c5c;
+                font-size: 12px;">0 caracteres digitados</small>
+            </div>
+
+            <div class=" grupo-campo">
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" placeholder="00000000" maxlength="8" required>
+                <small id="erro-cep" style="color: #dc3545; display: nome; font-size: 12px;">cep nao encontrado</small>
+            </div>
+
+            <div class="grupo-campo" style="display: flex; gap:10px;">
+            <div style="flex: 3; ">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" placeholder="Cidade" readonly required>
+                    
+            </div>"
+
+            <div style="flex: 1;">
+                <label for="estado">UF</label>
+                <input type="text" id="estado" placeholder="UF" maxlength="2" readonly required>
+            </div>    
             </div>
 
             <div class="grupo-campo">
