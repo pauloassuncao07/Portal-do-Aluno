@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: rgb(146, 231, 9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;    
+}
+.card{
+    background-color: rgb(186, 216, 79);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100px;
+    max-width: 380px;
+    box-shadow: 0 6px 11px rgb(224, 72, 72);
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: chocolate;
+}
+.grupo-campo{
+    margin-bottom: 15px;
+}
+.grupo-campo label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: darkorange;
+    font-weight: bold;
+}
+.grupo-campo input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #74d109;
+    border-radius: 10px;
+    font-size: 10px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+.grupo-campo input:focus {
+    border: #69a524;
+    background-color: rgb(211, 154, 85);
+    outline: none;
+}
+.grupo-campo input.campo-valido{
+    border-color: #659231;
+}
+/* Requisitos da senha */
+.lista-requisitos {
+    margin-top: 12px;
+    font-size: 15px;
+    list-style: none;
+}
+.requisitos {
+    color:rgb(85, 228, 192);
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+.requisito::before {
+    content: "\274c";
+    color: rgb(133, 114, 241);
+}
+
+.requisito.valido::before {
+    content: "\2714 "; /*"\2705" ou "\2714") */
+    color: rgb(15, 235, 114);
+}
+.campo-valido{
+    border-color: rgb(57, 204, 204);
+    background-color: rgb(245, 11, 42);
+}
+.btn {
+    width: 100%;
+    padding: 12px;
+    color: #43582a;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: backgraund-color 0.3s;
+
+}
