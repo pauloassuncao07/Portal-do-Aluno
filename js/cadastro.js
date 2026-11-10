@@ -30,7 +30,7 @@ inputCep.addEventListener('blur', () => {
             if (dados.erro){
                 erroCep.style.display = 'block';
                 inputCidade.value = '';
-                inputEstado.value = '';
+                inputEstado.value = ''; 
             } else {
                 erroCep.style,display = 'none';
                 inputCidade.value = dados.localidade;
