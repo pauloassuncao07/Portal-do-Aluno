@@ -1,6 +1,7 @@
 const nomeUsuarioElemento = document.getElementById('nome-usuario');
 const tituloBoasVindas = document.getElementById('titulo-boas-vindas');
 const btnLogout = document.getElementById('btn-logout');
+const cursoAlunoElemento = document.getElementById('curso-aluno');
 
 const dadosSalvos = localStorage.getItem('usuarioCadastrado');
 
@@ -13,6 +14,7 @@ if (!dadosSalvos) {
 
     nomeUsuarioElemento.textContent = `Olá, ${nomeExibicao}`;
     tituloBoasVindas.textContent = `Bem Vindo(a), ${nomeExibicao}`;
+    cursoAlunoElemento.textContent = `Curso:$(ususario.curso)`;
 }
 
 btnLogout.addEventListener('click' , () => {

@@ -3,11 +3,51 @@ const inputNome = document.getElementById('nome');
 const inputEmail = document.getElementById('email');
 const inputSenha = document.getElementById('senha');
 const inputConfirma = document.getElementById('confirmar-senha');
+const inputCurso = document.getElementById('curso');
+const contadorNome = document.getElementById('contador-nome');
 
 const reqTamanho = document.getElementById('req-tamanho');
 const reqMaiuscula = document.getElementById('req-maiuscula');
 const reqNumero = document.getElementById('req-numero');
 const reqEspecial = document.getElementById('req-especial');
+
+const inputCep = document.getElementById('cep');
+const inputCidade = document.getElementById('cidade');
+const inputEstado = document.getElementById('estado');
+const erroCep = document.getElementById('erro-cep');
+
+inputNome.addEventListener('input', () => {
+    const totalCaracteres = inputNome.value.length;
+    contadorNome.textContent = `${totalCaracteres} caracteres digitados`;
+});
+
+inputCep.addEventListener('blur', () => {
+    const cepLimpo = inputCep.value.replace(/\D/g,'');
+    if (cepLimpo.length === 8 ){
+        fetch(`https://viacep.com.br/ws/${cepLimpo}/json`)
+        .then(resposta => resposta.json())
+        .then(dados => {
+            if (dados.erro){
+                erroCep.style.display = 'block';
+                inputCidade.value = '';
+                inputEstado.value = '';
+            } else {
+                erroCep.style,display = 'none';
+                inputCidade.value = dados.localidade;
+                inputEstado.value = dados.uf;
+
+                inputCep.classList.add('campo-valido');
+                inputCidade.classList.add('campo-valido');
+                inputEstado.classList.add('campo-valido');
+            }
+        })
+        .catch(() => {
+            alert('Erro ao conectar ao serviço de CEP.');
+        });
+    } else {
+        erroCep.style.display = 'none';
+    }
+});
 
 inputSenha.addEventListener('input', () => {
     const valor = inputSenha.value;
@@ -67,7 +107,11 @@ formCadastro.addEventListener('submit', (event) =>{
     const novoUsuario = {
         nome: inputNome.value,
         email: inputEmail.value,
-        senha: inputSenha.value
+        senha: inputSenha.value,
+        curso: inputCurso.value,
+        cep: inputCep.value,
+        cidade: inputCidade.value,
+        estado: inputEstado.value
     };
 
     localStorage.setItem('usuarioCadastrado', 
